@@ -1,4 +1,3 @@
-```markdown
 # 🪙 i3blocks Crypto Prices
 
 A simple script that displays the real-time prices of **Bitcoin (BTC), Ethereum (ETH), Monero (XMR), and Solana (SOL)** in the **i3blocks bar** under **i3WM**.
@@ -102,18 +101,3 @@ Contributions are welcome!
 ## 📩 Contact
 
 💬 **Have suggestions or questions?** Open an [Issue](https://github.com/your-username/i3blocks-crypto-prices/issues)  
-```
-
----
-
-### **📌 Next Steps**
-1. **Copy all the text above** and save it as **`README.md`** in your project folder.
-2. **Add it to your GitHub repository**:
-   ```bash
-   git add README.md
-   git commit -m "Added README"
-   git push origin main
-   ```
-3. **Done! 🎉** Your GitHub repository now has a well-structured README.
-
-Let me know if you need any modifications! 🚀😎

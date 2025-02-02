@@ -1,7 +1,3 @@
-Voici le texte complet du **README.md** que tu peux **copier-coller directement** :
-
----
-
 ```markdown
 # 🪙 i3blocks Crypto Prices
 

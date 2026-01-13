@@ -1,103 +1,97 @@
-# 🪙 i3blocks Crypto Prices
+# i3blocks Crypto Prices
 
-A simple script that displays the real-time prices of **Bitcoin (BTC), Ethereum (ETH), Monero (XMR), and Solana (SOL)** in the **i3blocks bar** under **i3WM**.
+Script Bash simple pour afficher les prix en temps reel de **Bitcoin (BTC), Ethereum (ETH), Monero (XMR) et Solana (SOL)** dans la barre **i3blocks** (i3WM).
 
-📈 **Fetches live prices from CoinGecko API** and displays them with **FontAwesome 4.7.0** icons.
-
----
-
-## 📌 Features
-
-✔ **Displays prices in EUR**  
-✔ **Auto-updates every hour**  
-✔ **Uses FontAwesome 4.7.0 for clean visuals**  
-✔ **Optimized requests with caching**  
-✔ **Fully compatible with i3blocks**
+Les donnees proviennent de l'API **CoinGecko** et les icones proviennent de **Nerd Fonts**.
 
 ---
 
-## 🛠 Installation
+## Fonctionnalites
 
-### 1️⃣ **Clone the repository**
+- Affichage en EUR
+- Mise en cache locale (1 h) pour limiter les appels API
+- Journalisation des erreurs dans le cache
+- Compatible i3blocks
+
+---
+
+## Installation
+
+### 1) Cloner le depot
 ```bash
 git clone https://github.com/your-username/i3blocks-crypto-prices.git
 cd i3blocks-crypto-prices
 ```
 
-### 2️⃣ **Install dependencies**
-Ensure that **FontAwesome 4.7.0**, **jq**, and **curl** are installed:
+### 2) Installer les dependances
+Requis: `bash`, `curl`, `jq` et une police **Nerd Fonts**.
+
+Exemples:
 ```bash
-sudo pacman -S ttf-font-awesome jq curl
+# Arch
+sudo pacman -S jq curl ttf-nerd-fonts-symbols
+
+# Debian/Ubuntu
+sudo apt install jq curl fonts-nerd-fonts
+
+# Fedora
+sudo dnf install jq curl nerd-fonts
 ```
 
-### 3️⃣ **Copy the script to `/usr/local/bin/`**
+### 3) Installer le script
 ```bash
-sudo cp crypto_prices.sh ~/.config/i3/scripts/crypto_prices.sh
-sudo chmod +x ~/.config/i3/scripts/crypto_prices.sh
+mkdir -p ~/.config/i3/scripts
+cp crypto_prices.sh ~/.config/i3/scripts/crypto_prices.sh
+chmod +x ~/.config/i3/scripts/crypto_prices.sh
 ```
 
-### 4️⃣ **Add to i3blocks**
-Edit your `~/.config/i3blocks/config` file and add:
+### 4) Ajouter le module i3blocks
+Dans `~/.config/i3blocks/config`:
 ```ini
 [crypto_prices]
 command=~/.config/i3/scripts/crypto_prices.sh
 interval=3600
 label=₿
-font=pango:FontAwesome 10
 ```
 
-### 5️⃣ **Reload i3blocks**
+### 5) Recharger i3blocks
 ```bash
 pkill -SIGUSR1 i3blocks
 ```
-Or restart i3WM:
+Ou redemarrer i3WM:
 ```bash
 i3-msg restart
 ```
 
 ---
 
-## ⚡ Preview
+## Configuration
 
-Example of the display in i3blocks:
+- **Cle API CoinGecko**: editer `crypto_prices.sh` et remplacer `API_KEY="API_KEY"` par votre cle.
+- **Devises**: modifier `CURRENCY="eur"` si besoin.
+- **Cryptos**: modifier le tableau `CRYPTOS=(...)`.
+
+Cache et logs:
+- Cache: `~/.cache/crypto_prices/crypto_prices.json`
+- Log: `~/.cache/crypto_prices/crypto_prices.log`
+
+---
+
+## Apercu
 
 ```
- 42000 € |  3000 € |  160 € |  90 €
+ 42000 € |  3000 € |  160 € |  90 €
 ```
-🔹 **Icons used**:  
-- **Bitcoin** → `` (fa-btc)  
-- **Ethereum** → `` (fa-file-code-o)  
-- **Monero** → `` (fa-monero)  
-- **Solana** → `` (fa-scribd)
 
 ---
 
-## 🔗 API Used
+## API
 
-This script fetches real-time prices using the **CoinGecko API**.
-
-📌 **CoinGecko API Documentation**: [CoinGecko API](https://www.coingecko.com/en/api)
-
-Make sure to replace `YOUR_API_KEY` in `crypto_prices.sh` with your CoinGecko API key.
+Documentation CoinGecko: https://www.coingecko.com/en/api
 
 ---
 
-## 📜 License
+## Licence
 
-This project is licensed under the **MIT License**.  
-See the [LICENSE](LICENSE) file for more details.
-
----
-
-## 🚀 Contributing
-
-Contributions are welcome!  
-- Fork the project 🍴  
-- Create a branch 🛠️ (`git checkout -b feature-my-new-feature`)  
-- Submit a PR 🚀  
-
----
-
-## 📩 Contact
-
-💬 **Have suggestions or questions?** Open an [Issue](https://github.com/your-username/i3blocks-crypto-prices/issues)  
+Ce projet est distribue sous **GNU AGPL v3**.  
+Voir `LICENSE` pour le texte complet.

@@ -90,9 +90,7 @@ Fichiers de cache et log :
 
 ## Aperçu
 
-```
-    42000 € | 󰠓  380 € |   160 €
-```
+![Aperçu i3bar](assets/preview.png)
 
 ---
 
